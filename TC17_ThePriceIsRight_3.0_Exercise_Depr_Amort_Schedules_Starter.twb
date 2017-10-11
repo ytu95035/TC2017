@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook original-version='10.3' source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='10.4'>
+      <aliases enabled='yes' />
+      <column caption='As of Date' datatype='date' default-format='S' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='#2017-07-31#'>
+        <calculation class='tableau' formula='#2017-07-31#' />
+        <range granularity='1' max='#2023-12-31#' min='#2004-01-31#' period-type='month' />
+      </column>
+    </datasource>
+    <datasource caption='Assets+' inline='true' name='federated.10uw4pb0jd9qan11be1ps0fzv1cy' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Assets' name='excel-direct.17ci1qf0ok7gnb1b1guey1op6nhc'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='//tsi.lan/files/Home/AMER/mcrook/Shared/TC17_HOT/Assets.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='Dates' name='excel-direct.1x80xo81at266h10t3r1i0809di4'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='//tsi.lan/files/Home/AMER/mcrook/Shared/TC17_HOT/Dates.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='1' />
+              <expression op='1' />
+            </expression>
+          </clause>
+          <relation connection='excel-direct.17ci1qf0ok7gnb1b1guey1op6nhc' name='Data' table='[Data$]' type='table'>
+            <columns gridOrigin='A1:G211:no:A1:G211:0' header='yes' outcome='6'>
+              <column datatype='integer' name='Asset ID' ordinal='0' />
+              <column datatype='string' name='Asset Name' ordinal='1' />
+              <column datatype='date' name='Asset Start Date' ordinal='2' />
+              <column datatype='date' name='Asset End Date' ordinal='3' />
+              <column datatype='integer' name='Asset Amount' ordinal='4' />
+              <column datatype='string' name='Asset Category' ordinal='5' />
+              <column datatype='string' name='Asset Type' ordinal='6' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1x80xo81at266h10t3r1i0809di4' name='Dates' table='[Dates$]' type='table'>
+            <columns gridOrigin='A1:A241:no:A1:A241:0' header='yes' outcome='6'>
+              <column datatype='date' name='DateValue' ordinal='0' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Asset ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Asset ID]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Asset Name]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset Name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset Start Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Asset Start Date]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset Start Date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset End Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Asset End Date]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset End Date</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset Amount</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Asset Amount]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset Amount</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset Category</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Asset Category]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset Category</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Asset Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Asset Type]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Asset Type</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Data]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:G211:no:A1:G211:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DateValue</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[DateValue]</local-name>
+            <parent-name>[Dates]</parent-name>
+            <remote-alias>DateValue</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Dates]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:A241:no:A1:A241:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' default-format='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' name='[Asset Amount]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Asset ID]' role='dimension' type='ordinal' />
+      <column datatype='date' name='[Asset Start Date]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[Asset Type]' role='dimension' type='nominal' />
+      <column caption='Date Filter' datatype='boolean' name='[Calculation_2171297999958962178]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='// due to the cross join multiplying the number of records in our original dataset,&#13;&#10;// this is used as a filter to keep only the relevant records&#13;&#10;&#13;&#10;[DateValue] &gt;= [Asset Start Date]&#13;&#10;&#13;&#10;AND&#13;&#10;&#13;&#10;[DateValue] &lt;= [Asset End Date]' />
+      </column>
+      <column caption='Term Length (months)' datatype='integer' name='[Calculation_2171297999961456644]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEDIFF(&apos;month&apos;,[Asset Start Date],[Asset End Date])+1' />
+      </column>
+      <column caption='Monthly Depreciation' datatype='real' default-format='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' name='[Calculation_2171297999961583621]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Asset Amount]/[Calculation_2171297999961456644]' />
+      </column>
+      <column caption='Status' datatype='string' name='[Calculation_497084838822506496]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF( [Asset Start Date] &lt;= [Parameters].[Parameter 1]) AND ( [Asset End Date] &gt;= [Parameters].[Parameter 1] )&#13;&#10;    THEN &apos;Active&apos;&#13;&#10;ELSEIF ( [Asset End Date] &lt; [Parameters].[Parameter 1] )&#13;&#10;    THEN &apos;Closed (Fully Depreciated)&apos;&#13;&#10;ELSEIF ( [Asset Start Date] &gt; [Parameters].[Parameter 1] )&#13;&#10;    THEN &apos;Pending (Construction in Process)&apos;&#13;&#10;END' />
+      </column>
+      <column caption='Asset Cost' datatype='integer' default-format='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' name='[Calculation_528328561507303424]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [Asset ID]: MAX([Asset Amount])}' />
+      </column>
+      <column caption='Asset Count' datatype='integer' name='[Calculation_528328561508511745]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='countd([Asset ID])' />
+      </column>
+      <column caption='Net Book Value' datatype='real' default-format='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' name='[Calculation_750130843204263936]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_528328561507303424])-SUM([Calculation_750130843204739073])' />
+      </column>
+      <column caption='Accumulated Depreciation' datatype='real' default-format='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' name='[Calculation_750130843204739073]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF( [DateValue] &lt;= [Parameters].[Parameter 1] )&#13;&#10;    THEN [Calculation_2171297999961583621]&#13;&#10;    ELSE 0&#13;&#10;END' />
+      </column>
+      <column caption='Date Value' datatype='date' name='[DateValue]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column-instance column='[Calculation_2171297999961583621]' derivation='Sum' name='[cum:sum:Calculation_2171297999961583621:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Asset Type]' derivation='None' name='[none:Asset Type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_497084838822506496]' derivation='None' name='[none:Calculation_497084838822506496:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_528328561507303424]' derivation='None' name='[none:Calculation_528328561507303424:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Asset Amount]' derivation='Sum' name='[sum:Asset Amount:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_2171297999961583621]' derivation='Sum' name='[sum:Calculation_2171297999961583621:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_528328561507303424]' derivation='Sum' name='[sum:Calculation_528328561507303424:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[DateValue]' derivation='Year-Trunc' name='[tyr:DateValue:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Asset ID,Asset Start Date,Asset Type,Status,LOD_Asset Amount)' hidden='true' name='[Action (Asset ID,Asset Start Date,Asset Type,Status,LOD_Asset Amount)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Asset ID]' />
+          <groupfilter function='level-members' level='[Asset Start Date]' />
+          <groupfilter function='level-members' level='[Asset Type]' />
+          <groupfilter function='level-members' level='[Calculation_497084838822506496]' />
+          <groupfilter function='level-members' level='[none:Calculation_528328561507303424:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Asset ID,Asset Type,YEAR(Date Value))' hidden='true' name='[Action (Asset ID,Asset Type,YEAR(Date Value))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Asset ID]' />
+          <groupfilter function='level-members' level='[Asset Type]' />
+          <groupfilter function='level-members' level='[tyr:DateValue:ok]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Asset Type,YEAR(Date Value))' hidden='true' name='[Action (Asset Type,YEAR(Date Value))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Asset Type]' />
+          <groupfilter function='level-members' level='[tyr:DateValue:ok]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.517601' measure-ordering='alphabetic' measure-percentage='0.357236' parameter-percentage='0.125163' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#57606c'>
+              <bucket>&quot;[federated.10uw4pb0jd9qan11be1ps0fzv1cy].[sum:Calculation_2171297999961583621:qk]&quot;</bucket>
+            </map>
+            <map to='#57606c'>
+              <bucket>&quot;[federated.10uw4pb0jd9qan11be1ps0fzv1cy].[sum:Calculation_528328561507303424:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.10uw4pb0jd9qan11be1ps0fzv1cy].[sum:Asset Amount:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.10uw4pb0jd9qan11be1ps0fzv1cy].[cum:sum:Calculation_2171297999961583621:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Asset Type:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Computers&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>%all%</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Office Furniture&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Equipment&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='shape' field='[none:Calculation_497084838822506496:nk]' type='shape'>
+            <map to=':filled/circle'>
+              <bucket>&quot;Active&quot;</bucket>
+            </map>
+            <map to='circle'>
+              <bucket>&quot;Closed&quot;</bucket>
+            </map>
+            <map to='plus'>
+              <bucket>&quot;Pending&quot;</bucket>
+            </map>
+            <map to='square'>
+              <bucket>&quot;Closed (Fully Depreciated)&quot;</bucket>
+            </map>
+            <map to='times'>
+              <bucket>&quot;Pending (Construction in Process)&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='As of Date' datatype='date' default-format='S' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='#2017-07-31#'>
+          <calculation class='tableau' formula='#2017-07-31#' />
+          <range granularity='1' max='#2023-12-31#' min='#2004-01-31#' period-type='month' />
+        </column>
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

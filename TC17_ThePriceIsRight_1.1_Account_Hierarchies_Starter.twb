@@ -1,0 +1,544 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook original-version='10.3' source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Accounts_Flattened (Accounts)' inline='true' name='federated.0gcp9pw1l6joub1h02o7i0fu79zv' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Accounts' name='excel-direct.033spde1precge11c18n51lsfb88'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='//tsi.lan/Files/TableauAnalytics/TAT/Team/Demos/a_TCC_2017/TC17_Part_1/Accounts.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.033spde1precge11c18n51lsfb88' name='Accounts_Flattened' table='[Accounts_Flattened$]' type='table'>
+          <columns gridOrigin='A1:N19:no:A1:N19:0' header='yes' outcome='2'>
+            <column datatype='integer' name='Account Key' ordinal='0' />
+            <column datatype='string' name='Account Type Name' ordinal='1' />
+            <column datatype='integer' name='Account Type Sequence' ordinal='2' />
+            <column datatype='string' name='Account General Rate Type' ordinal='3' />
+            <column datatype='boolean' name='Account Is Active' ordinal='4' />
+            <column datatype='boolean' name='Account Is Balancesheet' ordinal='5' />
+            <column datatype='boolean' name='Account Is GAAP' ordinal='6' />
+            <column datatype='boolean' name='Account Is Allocated Overhead' ordinal='7' />
+            <column datatype='integer' name='Account Level 0 Number' ordinal='8' />
+            <column datatype='string' name='Account Level 0 Name' ordinal='9' />
+            <column datatype='integer' name='Account Level 1 Number' ordinal='10' />
+            <column datatype='string' name='Account Level 1 Name' ordinal='11' />
+            <column datatype='integer' name='Account Level 2 Number' ordinal='12' />
+            <column datatype='string' name='Account Level 2 Name' ordinal='13' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Account Key</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Key]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Key</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Type Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Type Name]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Type Name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Type Sequence</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Type Sequence]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Type Sequence</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account General Rate Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account General Rate Type]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account General Rate Type</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Active</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Active]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Is Active</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Balancesheet</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Balancesheet]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Is Balancesheet</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is GAAP</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is GAAP]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Is GAAP</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Allocated Overhead</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Allocated Overhead]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Is Allocated Overhead</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 0 Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Level 0 Number]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 0 Number</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 0 Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Level 0 Name]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 0 Name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 1 Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Level 1 Number]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 1 Number</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 1 Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Level 1 Name]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 1 Name</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 2 Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Level 2 Number]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 2 Number</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Level 2 Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Level 2 Name]</local-name>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias>Account Level 2 Name</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Accounts_Flattened]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:N19:no:A1:N19:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Account Key]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Level 0 Number]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Level 1 Number]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Level 2 Number]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Type Sequence]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <drill-paths>
+        <drill-path name='Account Hierarchy'>
+          <field>[Account Type Sequence]</field>
+          <field>[Account Level 0 Name]</field>
+          <field>[Account Level 1 Name]</field>
+          <field>[Account Level 2 Name]</field>
+        </drill-path>
+      </drill-paths>
+      <layout dim-ordering='alphabetic' dim-percentage='0.761484' measure-ordering='alphabetic' measure-percentage='0.238516' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='Accounts_Parent_Child (Accounts)' inline='true' name='federated.0gcp9pw1l6joub1h02o7i0fu79zv (copy)' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Accounts' name='excel-direct.033spde1precge11c18n51lsfb88 (copy)'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='//tsi.lan/Files/TableauAnalytics/TAT/Team/Demos/a_TCC_2017/TC17_Part_1/Accounts.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.033spde1precge11c18n51lsfb88 (copy)' name='Accounts_Parent_Child' table='[Accounts_Parent_Child$]' type='table'>
+          <columns gridOrigin='A1:K19:no:A1:K19:0' header='yes' outcome='2'>
+            <column datatype='integer' name='Account Key' ordinal='0' />
+            <column datatype='string' name='Account Type Name' ordinal='1' />
+            <column datatype='integer' name='Account Type Sequence' ordinal='2' />
+            <column datatype='string' name='Account General Rate Type' ordinal='3' />
+            <column datatype='boolean' name='Account Is Active' ordinal='4' />
+            <column datatype='boolean' name='Account Is Balancesheet' ordinal='5' />
+            <column datatype='boolean' name='Account Is GAAP' ordinal='6' />
+            <column datatype='boolean' name='Account Is Allocated Overhead' ordinal='7' />
+            <column datatype='integer' name='Account Number' ordinal='8' />
+            <column datatype='string' name='Account Name' ordinal='9' />
+            <column datatype='integer' name='Account Parent Key' ordinal='10' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Account Key</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Key]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Key</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Type Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Type Name]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Type Name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Type Sequence</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Type Sequence]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Type Sequence</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account General Rate Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account General Rate Type]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account General Rate Type</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Active</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Active]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Is Active</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Balancesheet</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Balancesheet]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Is Balancesheet</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is GAAP</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is GAAP]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Is GAAP</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Is Allocated Overhead</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Account Is Allocated Overhead]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Is Allocated Overhead</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Number]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Number</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Account Name]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Account Parent Key</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Account Parent Key]</local-name>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias>Account Parent Key</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Accounts_Parent_Child]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:K19:no:A1:K19:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Account Key]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Number]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Parent Key]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Account Type Sequence]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.687279' measure-ordering='alphabetic' measure-percentage='0.312721' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='51'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
