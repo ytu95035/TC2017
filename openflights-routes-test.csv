@@ -1,0 +1,7 @@
+from,to,routes
+FRA,SEA,5
+FRA,ZRH,5
+SEA,ZRH,5
+SEA,FRA,5
+ZRH,FRA,5
+ZRH,SEA,5

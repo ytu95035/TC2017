@@ -1,0 +1,712 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style-theme name='clean' />
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='10.4'>
+      <aliases enabled='yes' />
+      <column alias='Fruchterman-Reingold' caption='Please select model' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;layout_with_fr&quot;'>
+        <calculation class='tableau' formula='&quot;layout_with_fr&quot;' />
+        <aliases>
+          <alias key='&quot;layout_as_star&quot;' value='Star' />
+          <alias key='&quot;layout_as_tree&quot;' value='Tree' />
+          <alias key='&quot;layout_in_circle&quot;' value='Circle' />
+          <alias key='&quot;layout_nicely&quot;' value='Nicely' />
+          <alias key='&quot;layout_on_grid&quot;' value='Grid' />
+          <alias key='&quot;layout_on_sphere&quot;' value='Sphere' />
+          <alias key='&quot;layout_randomly&quot;' value='Randomly' />
+          <alias key='&quot;layout_with_dh&quot;' value='Davidson-Harel' />
+          <alias key='&quot;layout_with_drl&quot;' value='DrL' />
+          <alias key='&quot;layout_with_fr&quot;' value='Fruchterman-Reingold' />
+          <alias key='&quot;layout_with_gem&quot;' value='GEM' />
+          <alias key='&quot;layout_with_graphopt&quot;' value='graphopt' />
+          <alias key='&quot;layout_with_kk&quot;' value='Kamada-Kawai' />
+          <alias key='&quot;layout_with_mds&quot;' value='Multidimensional scaling' />
+        </aliases>
+        <members>
+          <member alias='Davidson-Harel' value='&quot;layout_with_dh&quot;' />
+          <member alias='DrL' value='&quot;layout_with_drl&quot;' />
+          <member alias='Fruchterman-Reingold' value='&quot;layout_with_fr&quot;' />
+          <member alias='GEM' value='&quot;layout_with_gem&quot;' />
+          <member alias='Kamada-Kawai' value='&quot;layout_with_kk&quot;' />
+          <member alias='Multidimensional scaling' value='&quot;layout_with_mds&quot;' />
+          <member alias='Grid' value='&quot;layout_on_grid&quot;' />
+          <member alias='Circle' value='&quot;layout_in_circle&quot;' />
+          <member alias='Sphere' value='&quot;layout_on_sphere&quot;' />
+          <member alias='Star' value='&quot;layout_as_star&quot;' />
+          <member alias='Tree' value='&quot;layout_as_tree&quot;' />
+          <member alias='graphopt' value='&quot;layout_with_graphopt&quot;' />
+          <member alias='Nicely' value='&quot;layout_nicely&quot;' />
+          <member alias='Randomly' value='&quot;layout_randomly&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='Routes' inline='true' name='csv.1rm0p5n1tm6sfq1161yr51j5mjsf' version='10.4'>
+      <connection character-set='65001' class='csv' directory='../data' driver='' filename='airports-test.csv' header='yes' password='' separator=',' server=''>
+        <relation connection='csv.1rm0p5n1tm6sfq1161yr51j5mjsf' name='Custom SQL Query' type='text'>SELECT &#13;&#10;[openflights-routes-germany#csv].[routes] AS [routes], &#13;&#10;[openflights-routes-germany#csv].[to] AS [to], &#13;&#10;[airports-germany#csv].[airport] AS [from], &#13;&#10;1 as [path order], &#13;&#10;[airports-germany#csv].[airport] AS [airport] &#13;&#10;FROM [openflights-routes-germany#csv] &#13;&#10;RIGHT JOIN [airports-germany#csv] &#13;&#10;ON [openflights-routes-germany#csv].[from] = [airports-germany#csv].[airport] &#13;&#10;&#13;&#10;UNION ALL &#13;&#10;&#13;&#10;SELECT &#13;&#10;[openflights-routes-germany#csv].[routes] AS [routes], &#13;&#10;[openflights-routes-germany#csv].[to] AS [to], &#13;&#10;[openflights-routes-germany#csv].[from] AS [from], &#13;&#10;2 as [path order], &#13;&#10;[openflights-routes-germany#csv].[to] AS [airport] &#13;&#10;FROM [openflights-routes-germany#csv] &#13;&#10;INNER JOIN [airports-germany#csv] &#13;&#10;ON [openflights-routes-germany#csv].[to] = [airports-germany#csv].[airport]</relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>routes</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[routes]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>routes</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I4&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>to</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[to]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>to</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>from</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[from]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>from</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>path order</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[path order]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>path order</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I4&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>airport</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[airport]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>airport</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Graph' datatype='string' name='[Calculation_7690530142541134]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='SCRIPT_STR(&quot;&#13;&#10;library(igraph)&#13;&#10;library(dplyr)&#13;&#10;set.seed(2811)&#13;&#10;&#13;&#10;data &lt;- data.frame(from = .arg1, &#13;&#10;                   to = .arg2, &#13;&#10;                   weight = .arg3, &#13;&#10;                   pathOrder = .arg4) %&gt;% &#13;&#10;  filter(pathOrder == &apos;1&apos;)&#13;&#10;airports &lt;- data.frame(airport = .arg5)&#13;&#10;&#13;&#10;g &lt;- graph_from_data_frame(data)&#13;&#10;&#13;&#10;coords &lt;- &quot; + [Parameters].[Parameter 1] + &quot;(g) %&gt;% &#13;&#10;  cbind(data.frame(airport = V(g)$name, &#13;&#10;                   betweenness = betweenness(g)))&#13;&#10;&#13;&#10;ret &lt;- left_join(airports, &#13;&#10;                 coords, &#13;&#10;                 by = &apos;airport&apos;)&#13;&#10;paste(ret[, 2], ret[, 3], ret[, 4], &#13;&#10;      sep = &apos;~&apos;)&#13;&#10;&quot;, &#13;&#10;MAX([from]), &#13;&#10;MAX([to]), &#13;&#10;SUM([routes]), &#13;&#10;MAX([path order]), &#13;&#10;MAX([airport]))' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='X' datatype='real' name='[Calculation_9610530162100766]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOAT(LEFT([Calculation_7690530142541134],FIND([Calculation_7690530142541134],&apos;~&apos;)-1))' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Y' datatype='real' name='[X (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOAT(LEFT(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;)),FIND(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;)),&apos;~&apos;)-1))' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Betweenness' datatype='real' name='[Y (copy 2)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='FLOAT(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;,FIND([Calculation_7690530142541134], &apos;~&apos;)+1)))' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Airport' datatype='string' name='[airport]' role='dimension' type='nominal' />
+      <column caption='From' datatype='string' name='[from]' role='dimension' type='nominal' />
+      <column caption='Path Order' datatype='integer' name='[path order]' role='measure' type='quantitative' />
+      <column caption='Routes' datatype='integer' name='[routes]' role='measure' type='quantitative' />
+      <column caption='To' datatype='string' name='[to]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_9610530162100766]' derivation='User' name='[usr:Calculation_9610530162100766:qk:5]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' />
+        <table-calc field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Calculation_7690530142541134]' ordering-type='Field'>
+          <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[RetweetedBy]' />
+          <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[User]' />
+          <sort direction='DESC' using='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[max:RetweetedBy:nk]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[X (copy)]' derivation='User' name='[usr:X (copy):qk:5]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' />
+        <table-calc field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Calculation_7690530142541134]' ordering-type='Field'>
+          <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[RetweetedBy]' />
+          <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[User]' />
+          <sort direction='DESC' using='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[max:RetweetedBy:nk]' />
+        </table-calc>
+      </column-instance>
+      <layout dim-ordering='alphabetic' dim-percentage='0.325733' measure-ordering='alphabetic' measure-percentage='0.418024' parameter-percentage='0.256243' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' palette='tableau-10' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Calculation_9610530162100766:qk:5]&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Y (copy):qk:1]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Y (copy):qk:5]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:5]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:5]:1&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Vereinigte Staaten von Amerika&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column alias='Fruchterman-Reingold' caption='Please select model' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;layout_with_fr&quot;'>
+          <calculation class='tableau' formula='&quot;layout_with_fr&quot;' />
+          <aliases>
+            <alias key='&quot;layout_as_star&quot;' value='Star' />
+            <alias key='&quot;layout_as_tree&quot;' value='Tree' />
+            <alias key='&quot;layout_in_circle&quot;' value='Circle' />
+            <alias key='&quot;layout_nicely&quot;' value='Nicely' />
+            <alias key='&quot;layout_on_grid&quot;' value='Grid' />
+            <alias key='&quot;layout_on_sphere&quot;' value='Sphere' />
+            <alias key='&quot;layout_randomly&quot;' value='Randomly' />
+            <alias key='&quot;layout_with_dh&quot;' value='Davidson-Harel' />
+            <alias key='&quot;layout_with_drl&quot;' value='DrL' />
+            <alias key='&quot;layout_with_fr&quot;' value='Fruchterman-Reingold' />
+            <alias key='&quot;layout_with_gem&quot;' value='GEM' />
+            <alias key='&quot;layout_with_graphopt&quot;' value='graphopt' />
+            <alias key='&quot;layout_with_kk&quot;' value='Kamada-Kawai' />
+            <alias key='&quot;layout_with_mds&quot;' value='Multidimensional scaling' />
+          </aliases>
+        </column>
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Routes' name='csv.1rm0p5n1tm6sfq1161yr51j5mjsf' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column alias='Fruchterman-Reingold' caption='Please select model' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;layout_with_fr&quot;'>
+              <calculation class='tableau' formula='&quot;layout_with_fr&quot;' />
+              <aliases>
+                <alias key='&quot;layout_as_star&quot;' value='Star' />
+                <alias key='&quot;layout_as_tree&quot;' value='Tree' />
+                <alias key='&quot;layout_in_circle&quot;' value='Circle' />
+                <alias key='&quot;layout_nicely&quot;' value='Nicely' />
+                <alias key='&quot;layout_on_grid&quot;' value='Grid' />
+                <alias key='&quot;layout_on_sphere&quot;' value='Sphere' />
+                <alias key='&quot;layout_randomly&quot;' value='Randomly' />
+                <alias key='&quot;layout_with_dh&quot;' value='Davidson-Harel' />
+                <alias key='&quot;layout_with_drl&quot;' value='DrL' />
+                <alias key='&quot;layout_with_fr&quot;' value='Fruchterman-Reingold' />
+                <alias key='&quot;layout_with_gem&quot;' value='GEM' />
+                <alias key='&quot;layout_with_graphopt&quot;' value='graphopt' />
+                <alias key='&quot;layout_with_kk&quot;' value='Kamada-Kawai' />
+                <alias key='&quot;layout_with_mds&quot;' value='Multidimensional scaling' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='csv.1rm0p5n1tm6sfq1161yr51j5mjsf'>
+            <column caption='Graph' datatype='string' name='[Calculation_7690530142541134]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='SCRIPT_STR(&quot;&#13;&#10;library(igraph)&#13;&#10;library(dplyr)&#13;&#10;set.seed(2811)&#13;&#10;&#13;&#10;data &lt;- data.frame(from = .arg1, &#13;&#10;                   to = .arg2, &#13;&#10;                   weight = .arg3, &#13;&#10;                   pathOrder = .arg4) %&gt;% &#13;&#10;  filter(pathOrder == &apos;1&apos;)&#13;&#10;airports &lt;- data.frame(airport = .arg5)&#13;&#10;&#13;&#10;g &lt;- graph_from_data_frame(data)&#13;&#10;&#13;&#10;coords &lt;- &quot; + [Parameters].[Parameter 1] + &quot;(g) %&gt;% &#13;&#10;  cbind(data.frame(airport = V(g)$name, &#13;&#10;                   betweenness = betweenness(g)))&#13;&#10;&#13;&#10;ret &lt;- left_join(airports, &#13;&#10;                 coords, &#13;&#10;                 by = &apos;airport&apos;)&#13;&#10;paste(ret[, 2], ret[, 3], ret[, 4], &#13;&#10;      sep = &apos;~&apos;)&#13;&#10;&quot;, &#13;&#10;MAX([from]), &#13;&#10;MAX([to]), &#13;&#10;SUM([routes]), &#13;&#10;MAX([path order]), &#13;&#10;MAX([airport]))' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='X' datatype='real' name='[Calculation_9610530162100766]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(LEFT([Calculation_7690530142541134],FIND([Calculation_7690530142541134],&apos;~&apos;)-1))' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Y' datatype='real' name='[X (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(LEFT(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;)),FIND(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;)),&apos;~&apos;)-1))' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Betweenness' datatype='real' name='[Y (copy 2)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='FLOAT(RIGHT([Calculation_7690530142541134],LEN([Calculation_7690530142541134])-FIND([Calculation_7690530142541134], &apos;~&apos;,FIND([Calculation_7690530142541134], &apos;~&apos;)+1)))' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Airport' datatype='string' name='[airport]' role='dimension' type='nominal' />
+            <column-instance column='[airport]' derivation='Attribute' name='[attr:airport:nk]' pivot='key' type='nominal' />
+            <column-instance column='[path order]' derivation='Attribute' name='[attr:path order:qk]' pivot='key' type='quantitative' />
+            <column caption='From' datatype='string' name='[from]' role='dimension' type='nominal' />
+            <column-instance column='[from]' derivation='None' name='[none:from:nk]' pivot='key' type='nominal' />
+            <column-instance column='[to]' derivation='None' name='[none:to:nk]' pivot='key' type='nominal' />
+            <column caption='Path Order' datatype='integer' name='[path order]' role='measure' type='quantitative' />
+            <column caption='Routes' datatype='integer' name='[routes]' role='measure' type='quantitative' />
+            <column caption='To' datatype='string' name='[to]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_9610530162100766]' derivation='User' name='[usr:Calculation_9610530162100766:qk:10]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Calculation_7690530142541134]' ordering-type='Field'>
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[to]' />
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[from]' />
+              </table-calc>
+            </column-instance>
+            <column-instance column='[X (copy)]' derivation='User' name='[usr:X (copy):qk:8]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Calculation_7690530142541134]' ordering-type='Field'>
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[to]' />
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[from]' />
+              </table-calc>
+            </column-instance>
+            <column-instance column='[Y (copy 2)]' derivation='User' name='[usr:Y (copy 2):qk:9]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+              <table-calc field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Calculation_7690530142541134]' ordering-type='Field'>
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[to]' />
+                <order field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[from]' />
+              </table-calc>
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8]' scope='rows' value='false' />
+            <encoding attr='space' class='1' field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='1' field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8]' scope='rows' value='false' />
+            <format attr='display' class='0' field='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Calculation_9610530162100766:qk:10]' scope='cols' value='false' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' value='true' />
+            <format attr='break-on-special' value='true' />
+            <format attr='show-null-value-warning' value='true' />
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='div-level' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='header-div'>
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='8' selection-relaxation-option='selection-relaxation-disallow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:to:nk]' />
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:from:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true'>Æ&#10;</run>
+                <run fontcolor='#787878'>User:&#9;&lt;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[attr:airport:nk]&gt;</run>
+                <run bold='true'>Æ&#10;</run>
+                <run fontcolor='#787878'>RetweetedBy:&#9;</run>
+                <run bold='true'>&lt;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:to:nk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='9' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:to:nk]' />
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:from:nk]' />
+              <path column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[attr:path order:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>&lt;</run>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:from:nk]</run>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>&gt; &lt;-&gt; &lt;</run>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:to:nk]</run>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#555555' />
+                <format attr='mark-transparency' value='129' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='10' selection-relaxation-option='selection-relaxation-disallow' y-axis-name='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8]' y-index='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <size column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Y (copy 2):qk:9]' />
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:to:nk]' />
+              <lod column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:from:nk]' />
+              <tooltip column='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[attr:airport:nk]' />
+            </encodings>
+            <customized-tooltip show-buttons='false'>
+              <formatted-text>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='16'>&lt;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[attr:airport:nk]&gt;</run>
+                <run fontalignment='1'>Æ&#10;</run>
+                <run bold='true' fontalignment='1' fontname='Consolas' fontsize='12'>&lt;[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Y (copy 2):qk:9]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1' />
+                <format attr='shape' value=':filled/circle' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#ff0000' />
+                <format attr='mark-transparency' value='52' />
+                <format attr='has-stroke' value='false' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8] + [csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:X (copy):qk:8])</rows>
+        <cols>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Calculation_9610530162100766:qk:10]</cols>
+        <show-full-range>
+          <column>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Order (bin)]</column>
+        </show-full-range>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card size='2' type='filters' />
+            <card size='7' type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card pane-specification-id='10' param='[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Y (copy 2):qk:9]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Order (bin)]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[Set 1]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[io:Set 1:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:AlternatingName:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:Calculation_0660624215025698:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:Calculation_3900624220538272:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:Order:ok]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:Order:qk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:PathOrder:ok]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:RetweetedBy:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[none:User:nk]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Calculation_7690530142541134:nk:1]</field>
+            <field>[csv.1rm0p5n1tm6sfq1161yr51j5mjsf].[usr:Calculation_7690530142541134:nk]</field>
+          </color-one-way>
+        </highlight>
+        <geo-search-visibility value='1' />
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAgAElEQVR4nO2dSWwjWZrf/7EwuO/7TlGphdqqslBT1eVGYwDPwDAM2D71ZQAfDNuAL77Z
+      B8MwYMA2fDc8vhgDjDGAjwbsg+FlDj4MZqq6XVWdmZRErSTFfd93MsIHZbwURVKilMpMpfR+
+      AJFKMiIYyvz+8d773rcwoihKoFCeKTwAsCz7qe+DQvkkUMunPGuoACjPGioAyrOGCoDyrKEC
+      oDxrqAAozxoqAMqzhgqA8qyhAqA8a6gAKM8aKgDKs4YKgPKsoQKgPGuoACjPGioAyrOGCoDy
+      rKECoDxrqAAozxoqAMqzhgqA8mwxmUxUAJTnSyAQoAKgPE9sNhtarRYVAOX5wTAMfD4fUqkU
+      FQDl+eF2u1EulzEej6kAKM8LjuPgcDiQyWQAUC8Q5Znh9/uRzWYhSZcVQakAKM8GQRBgNBpR
+      LBbJe1QAlGdDMBjExcXF1HtUAJRngVqthlKpRK1Wm3qfCoDyLAiFQkgkEjPvUwFQnjwGgwGi
+      KKLdbs98RgVAefKEQiEkk8m5n1EBUJ40VqsV7XYb/X5/7udUAJQnC8Mw8Pv9M56fq1ABUJ4s
+      LpcLlUoF4/F44TFUAJQnyfWQh0VQAVCeJF6vF/l8HqIo3ngcFQDlyaFQKGCxWFAoFG49lgqA
+      8uQIBoNIpVJLHUsFQHlSqNVqqNVqVCqVpY6nAqA8KYLB4MJNr3lQAVCeDHq9HgzDoNlsLn0O
+      FQDlybCysoJ4PH6nc6gAKE8Cs9mMbre7MORhEVQAlM8ehmEQCATuNPeXoQKg3IiOYbBrMn3q
+      27gRh8OBer2O0Wh053OpACg30pMkWLe38e2330Kj0Xzq25mBZVl4PB6k0+l7nc+IoiixLNUB
+      ZTEajQbfffcdJElCPB5HMpm8NcTgY+Hz+TCZTJDL5e51PrV8yq10u10cHx+j3W4jEAjgyy+/
+      hMVi+dS3BZ7nYbfbkc/n730NOgJQloJhGOzu7qLRaMBqtWIwGGAymSAej2MwGHz0+1EB8K2s
+      oN5qoVwu3/s61PIpSyFJEk5PT2E0GnF+fg6e51Gr1bC5uQmPxwOGYT7avfwtAD8B+A+1Ghrv
+      YfwAFQDlDnS7XdRqNej1epyensLtdiMej4PjOOzu7kKv13+U+/g1ACvP44tmE2vveS0qAMqd
+      SKfTMJvNkCQJh4eHWFlZQbvdxvHxMQKBAMLhMHie/6D38J8A5JRK/B+9HrH3vZgoihIA+qKv
+      pV8ajUba3d2VGIaReJ6Xdnd3JYfDIQGQbDab9OWXX0o2m+2D3sPv//7vS3/wB3/w3tehIwDl
+      znS7XdTrdXi9XozHY0SjUVitVvh8PpTLZUSjURiNRmxvb0OlUj3497MsC4VCgX6/D51O937X
+      eqB7ojwz5KmQRqMh0yGlUolwOIzJZIKzszNcXFxgfX0dfr//QRfJGo0Goigil8vB7Xa/17Wo
+      ACj3QvYKvXjxghj32dkZhsMhNjY2wLIsWq0W3rx5g8lkgi+++AIGg+FBvlsWQLFYhNPpfK9r
+      UQFQ7k2v10O1WoXP5yPvpdNpVKtVbG1tged5SJKEbDaLg4MDeDwerK+vv/ciWaPRoN/vYzQa
+      YTQaQRCEe1+LCoDyXlydCskUi0VkMhns7OxAqVQCAIbDIWKxGMrlMnZ2dt7rya1Wq9Hv9yGK
+      IgqFwntNg6gAKO/N6ekp1tbWpub5tVoNJycniEQi0Gq15P1qtYrXr19DrVZjd3f3XgF2giBg
+      NBpBkiTk83kqAMqnpdvtolKpwO/3T73f6XRweHiItbU1mK6EVIuiiEQigbOzM4TDYaysrOCu
+      4TgMw0CSJPT7fXAcB47j7nXvVACUByGdTsNoNE497QFgMBggGo0iEAjAbrdPfdbtdhGNRtHr
+      9bC7uwuz2Xzr96hUqpnYo1KpNHPtZaECoDwYp6enWF1dnXF5ynsFNpsNXq935rx8Po/9/X3Y
+      7XZsbm6SdcM8NBoNut0uGIYhIdn5fB4ej+de90wFQHkwer3e3KkQcDnticViUKvVCIfDM5+P
+      x2McHx8jl8thc3MTXq937t6BRqNBp9MBy7Kk02Oz2YROp7vXXgMVAOVByWQyMBgMM1Mh4N3e
+      wWg0InsF12k0Gnj9+jVYlp0bYMfzPHq93sx5lUrlXjkKVACUB+f6Btl1UqkU6vU62Su4jiRJ
+      SKVSCwPs5gngvu5QKgDKg9Pv91EqlRAIBBYeUygUkMlksL29vXAjq9/vY39/H81mEzs7O7DZ
+      bABApj5XqVQqsFqtd75XKgDKByGbzUKv18+dCsnUajWcnZ1he3sbarV64XFXA+wcDsfCUaPZ
+      bN4p3MJisVABUD4ct02FAKDdbuPw8BCbm5s3Gu94PMbZ2RkGgwF2dnbmbqDdJTbIbDbD4/FQ
+      AVA+HP1+H8Vi8capkHxcNBpFKBQi05x5qFQq1Ot1RKNRKBQKbG1tTYVbFwqFpQRgNBoRCAQQ
+      i8WoACgfllwuB51Od2vc/mg0QjQahcPhWOjTl6NAx+MxGo0GUqnUVLj1eDzGeDy+cTql0+kQ
+      CoVwcHCA8XhMBUD58MgbZLeFO4iiiMPDQ2i1WoRCoZnPtVotut0u+bscbi2KIvb29mAwGFAo
+      FOBwOOZeX6PRYG1tDYeHh6SKHBUA5YMzGAxQKBRunQoBl4vZk5MTSJKE9fX1qfWDWq2eEoB8
+      fCaTQSwWg9frhV6vn+sOVSqVWF9fx+HhIYbDIXmfCoDyUcjn89BqtUunMCaTSTSbTWxvb5NA
+      NzkMeh6DwQCHh4dIp9MwGAxwuVzkM6VSic3NTRwfH8+cTwVA+WjIXqFlIz/z+Tyy2Sx2dnag
+      UChIBOhNVKtVJJNJBINB7OzswGAwIBKJ4Pz8fGb0AKgAKB+RwWCAfD6PYDC49DnVahXn5+fY
+      29vDZDJZ6pxcLofRaIRUKoVvvvkGo9EInU5n7rFUAJSPSj6fh0ajuVMRrVarhWQyCYvFstQU
+      qtlsQq/XIxQK4ccff0SlUlkYbk0FQPnoLOsVuopCocDZ2RkCgcCNbk4AJFK02WyiVqshn8/j
+      4OAADocDGxsbU6EXVACUj859pkIajQaNRgPn5+fY3NxcmFjPMAw2NzdRKpWmwjBGoxGOjo6Q
+      z+cRiURIPVMqAMon4a5TITkRRg6Qs1gsM8FvDMNgfX0d9XodsVhsbnh0o9HAmzdvwPM8dnZ2
+      qAAon46Tk5Olp0Icx5FF8HA4RKVSgcvlmvL5r66uot1uI5vNQpIkdLtdGI3GmWuJooiLiwuc
+      nJxQAVA+HcPhELlcbu6u71VYlp3yALEsi9FohIODA+j1egSDQYTDYYxGI2QyGXJcLpeb2g+4
+      CsMw0Gq1VACUT0uhUIBarb4xElStVs9NgpEkCcfHx7Db7XA6nbi4uJi59vVkeZZlYbfbsbu7
+      i+3tbSoAyqfntqmQRqOZEgDLsiQh3u/3o16vI5lMYmtra+oa4/EYk8kEGo0GHMfB6/Vib28P
+      KpUKqVQKlUqFCoDy6RkOh8hmswunQnIi/HVcLhc0Gg3Ozs6QzWZRKBTIrrFMuVwmT/vJZILX
+      r18jnU4jEAjg7OyMCoDyOCgUClCpVHOnQtejQFmWhdFohNlsxvHxMQmPKJfLSCQS2N7ehsVi
+      wfr6OrRaLQRBwP7+PorFIhiGIaPGZDKhTfIowN8B8A8B/FcAf/qe12IYhkRwzvuZYRiwLAuW
+      Zad+ZlkWSqUSoVAI8Xh86tiVlRWkUinyd61WC5/Ph3g8Tr736jUMBgPUajXa7Tbq9To8Hg9y
+      uRwmkwkEQYBOp0O5XIYkSVQAzx0rgJ8B6BkGIsPg114vUirVlMHKRnzVaK9yNWRZkiTyRJ73
+      syRJEEURoijO/VmtVsNoNOLi4oIcv7q6iqOjI4iiCL1eD6/Xi263i9PTU4iiCIZhYLVa4XK5
+      0Gq1kE6nIYoiNjY2kE6n4XA40Gq1kMlksLu7i3g8Tq77YZs5UR49AwAdAEaWxZjnYff70RqN
+      oFQqoVQqiQBkQ5VLkk8mE+KanEwm5PPrhj0ejyGKIjn+pp9lg49EIhgMBmg0GlAqlWg0GqjX
+      6xAEAT6fDwcHB/B6vRiNRnC5XLDb7ahUKohGo1Ox/gcHB4hEIrB0u/in4zH+n9OJI5vtMhme
+      ZTEYDOgIQAF2AfwDjQb7wSD+V6cDk8lEavcoFAoIggCVSkVeSqWSxOiPx2OMRiMMh8OplwzH
+      cWBZlhSwvelnWWw8z8NisaBWq0GhUEChUKDZbMJsNqPdbmM4HMJut0MURfT7feRyOQyHQ0wm
+      E0iSBJ7nodPpoNVqoVGp8KexGF60WhAB/IuXL/FbgwG1Wg2NRoOOABTgDYB/Lkn4zu1G6+ef
+      SZyOy+VCMplEu91Gu92eOY9hmBmBmM3mKYHI4uj3++QlG6vsypzHus2Gfzkc4uteDz/wPP50
+      bQ2x42OYzWYYjUY0Gg1kMhkYjUa4XC5otVowDENEIHuCWFGE5a0LlQFg6/fR5XkMh8PLEY6O
+      ABSZr7/+GqPRCK9evQJwmUAeDAbR6/WQSqVIHu2yzBOIPILIT/xFAvmz0Qi/vrK2+N8GA/7d
+      F1+g2+2C4ziYzWaMx2My3bo6+sjTNPl+/8hgwD+Kx3FkMOA/7uygJ4ro9Xro9/tUAJR3rK+v
+      Q6lUIpPJoFqtkvflqs7lchm5XO7GJ/dduEkgPx4eQiFJwFsRTBgGf/sP/5A0xmAYBrVaDZPJ
+      hGx4XV9X6PV6uFyuy+v9+CPC4TBisRjC4TDq9To6nQ4VAOUdDoeDVHN7/fr11GcMw8Dr9cJq
+      tSKdTqNSqTz49zMMA6PRCLvdjv+eyWC917sUgCThVKvFX1MqUa1WodfrYbVap9yg17Hb7XC5
+      XNDpdMhms0gmk9je3ibFtba2tuBwOKgAKO8QBAFra2vo9Xqo1+tTo4AMz/MIBoNQqVRIJBIL
+      Uw2XhWEYGAwG2Gw2aLVaNJtNlMtlfC2K+DMA7l4PKY7D32NZFIJB8DyPWq0GtVq9UAA+nw86
+      nQ7dbhd+vx9/+Zd/CUmS4HQ6wXEcGIaB2WxGtVqlAqBMs7u7i5OTE2xsbOD169cLk9A1Gg1W
+      VlYwHA6RTCanPD/LoNVqYbPZYDQa0ev1UCqV0Gg0IEkSWJbF3t4eBFHEKB6HcXsb//f778l5
+      6+vrUCgUiEajUzvEDMMgHA6T3mHffvstXr16RYSsVqvx3Xff4ezsDOl0GhsbG9QLRJmm0+lA
+      EAS0Wi1YrVaUy+W5x3W7Xezv78NkMiESiaBWq5ENqEWo1Wo4HA6YTCZSNjGVSs2cEw6Hkcvl
+      4PV68XOrhb/+NphtMpmg0+kgHo/D4/EgFAphMpkglUqh3+9jY2MDzWYT2WwWL1++RKVSIcZv
+      MpkQDAbR6XSQz+exubl56TJ9uH86ylOgXq/DYrEgnU4jEomgUqncWIqkXq+j0WjA6XRib28P
+      mUyGhBkAl9Mq29vNJ1EUUSqVkE6nF1Z4sFqt4DgOvV4PzWYTwGUVaavVimKxCACkCXcqlYJO
+      p8Pq6iosFgsSiQQymQx8Ph+MRiO+//57MAyDQCAAjUaDg4MDuN1uvHz5EoVCAXq9ngqAMk2z
+      2YTP50MikUCz2bxxFJCRpxxyTwCv14tqtUoC24rFImKxGMbj8Y3XEQQBgUAAr1+/ht/vJ98r
+      N8GTBXCV8XgMjuMQi8VgNpuxs7MDu92ORCIBURSxvb1NUiR5nofNZoMkSTAajdjf36fRoJRp
+      5NAFjuOQTqcX9uq6juybVyqVkCQJNpsNHMfh9PQUxWLxVuMHgLW1NZydnWEymcBkMpERoFqt
+      TuX/yvkAer0ekUgER0dHKBQKODo6glqtJjvJe3t7SCaTSKfTUCgUiEQiZPPs6OgIo9GIjgCU
+      WZrNJoxGI6rV6o2jgByW7HQ6oXzrokwkEqT8oMFgwNraGtrtNi4uLm4sbOX1etFut9FsNqFU
+      KjEYDMjaoNvtgud5khgPXDa3sNlsiEajZMPL5/NBpVKh1Wqh1+thMpmQ/Qu/349kMgm/349s
+      NgtBENDr9agAKLPU63XY7XZUq1Wk02lsbW2RtYDstrTb7dBoNGg2m0ilUnPdoc1mE9FoFHa7
+      HTs7OygUCigUCjNrCp1OB4vFgmg0CuByHVCr1aaOqdVqMJvN6Ha7ZKT5+eefiah0Oh38fj8E
+      QcDJyQny+Ty51t7eHhqNBlZWVnB6egpJkmC322ksEGU+7XYbKysrAC5jeZrNJvx+PziOg8Fg
+      QKfTQaFQQLvdvrVWpyRJKBaLqFQq8Hq92N3dRSqVIgbOsiwJd5avJSe6XKVarcLpdBIffiqV
+      IsbPMAx2dnag1+vxww8/oF6vA3gnit/85jdYW1uDKIrwer3IZrNkfUIFQJlBDns2Go0wmUwk
+      ++rVq1dIJpP3CoWYTCa4uLhAoVCYCrSTk1XkaZMcIXo97qharSISiaBer5NcAeBy7bG7uwuO
+      4xCPx4nx6/V6IqxAIIB8Po98Pg+1Wg2/3w+TyQSbzUYFQJlGqVTCarXCaDRCq9UiHo+THFqO
+      4947DmgwGOD4+Bh6vZ50iEwkEuRzs9mMRqMxdQ7DMHA4HGBZFtVqlbRF0uv12NramtofAC59
+      /n6/HwcHB/D5fOj1emRK1Ov1cHx8jEajQTfCKJcIggCr1Qqr1QpRFFEul3FwcACXy0UWv6lU
+      Ctvb21M+/vdhMBhgNBqRGJ1SqYR8Pg+LxYJsNkuOY1kW6+vraLfbyOVyMBqNGI1GsNlsxDtV
+      r9fR6/UwGo1gsViI8ctFs66XSwEu84ddLhcVwHOF4zjiSeF5HpVKBcfHx1MhDaFQiNTkH4/H
+      ZHE8zx9/V2SXZ6vVQrlcJusDtVqN09NTAJdxR1tbW8jn8ygWi2QNolQq0el0MBwOiYv07OwM
+      NpsNTqcT+/v7sNvtUKlUODk5mfluhmFIWUYaC/SMYFkWZrMZdrsdgiCgWq2iXC4v7Lqyvr6O
+      VCpFavLwPI/t7e0bY4SWwev1guO4mSezyWTC1tYWGo0GstksgsEg4vE4mRI5HA589dVXSKVS
+      6Ha7UKvVmEwmpKKEzWbDwcEBzGYzXC4XDg4OyH2yLDsVdCcn+NAR4IlzF7fldeSwCLnc4EOM
+      AjqdDmazGfv7+zOfyRtUPM/jq6++Qj6fJ+Kz2WzweDwkecbj8SAWi8HpdEKtVsNkMuHg4AAG
+      gwFerxfRaBQMw5DFrkajQbvdRrFYRKvVgiRJNCPsKaPX6+FwOKDT6dBqtVAsFuemNd6EUqnE
+      2toa8c8Dl1OnnZ2de40C8rlHR0dzR529vT3kcjl4PB4cHh6SjDTgspfw8fExXr58CYPBgJOT
+      E1gsFrIxdnp6SiJF0+k0TCYTlEolms0mqtXqQpctHQGeEBqNBna7HQaDAf1+H6VSCefn5/ee
+      rgwGA1JvR/b+TCYT1Gq1e40CKysryGQyc41fEAQYjUZMJhNEo1FMJhMMBgNS5Vmj0ZCkeKfT
+      Ca1WC4PBgG63i0QiAYfDgUgkglarBZVKhUwms9QoRwXwmaNUKuFwOGA2mzEcDheGGN+XdrsN
+      rVaLVqtF3stkMtjZ2UGpVFpaXFarFSzLLgysC4fDaDQaZN7ucrngcDhwdHSEXq8HjuMQDAax
+      6vfj1ycn+Nlsxl8NBlAoFPjyyy+h0Wjw888/z7hQb4MK4DNEdltaLBZIkkTclssEnN2Ver0O
+      s9k8JYBlRwG5zIkgCKQ7u5wQf7Usis/ng9frJb1+7XY7dDodyQmQs7g0Gg3cgwH+6PQUbrcb
+      P/j9aDQaUKlU+Omnn6bucVnoGuCRwgL4DkAZwBEuPTBms5mEA5TLZZTL5TtXagCmyxTKld6u
+      lim8WqtHqVQiGAwimUxOGa1CoYDb7UahULi83yt1fWR7kkcHq9WKarWK4XAISZJI8jrHcWQn
+      2GazoVgswul04vz8HJ1OhxTXkksafv311xAnE/yi38efZzJIDgaIRCJoNpukMkS73Uar1UKn
+      01nqgUAF8Ej5+wD+NYA+y+KfhMOo2Wyk6dtwOJx5il7/c5GBA7NlCq+XLLxaYUEURQQCASQS
+      CQyHQ/K5KIpwOp0Yj8fI5/Mz15Hx+XxgWXbG5alUKrGxsYFUKgXg0uXa6XRm9iIYhoHNZkMk
+      EkEqlSK9BFqtFhmJCoUCGIaBUqmEXq+HXq+HRqMBy7Lo9/totVpot9vo9XozoqBToEeKCwDL
+      MDAKAra9Xvz09qlssVhm4vPljaqr9XDG4zF5yaUM5b/LBj5PBHM9JW8LSV1Pkk8mkyS4bd55
+      er0eJpNpxuUpZ3GdnZ1hOBziq6++mrtgNxqNCAaD0Gg0yGQy4DgOhUIBo9EI4XAY0WiUjECS
+      JJG6QqVSCQDICCZ7xNRqNRiGQb/fJxXmqAAeKX8MYCxJyAwG+IuzM3j9fozHY1xcXJD/4OtP
+      +OsjAc/zU1OWq9Obq6PE1emLvPN7VRhKpRIejwflcnluTc9wOIxqtTr1PnC523t8fEzaloqi
+      CLPZDL/fj1gsBrVajRcvXoBhGJydnZHfXafTIRAIYDweI5FIYGVlBZ1OBwaDAZVK5bKcCcOQ
+      f4dFiG8LYPV6val0SrVaDb1ef/nddAr0+WA0GhEOh6HX65HP55FOp6eqIjwU84S1s7ODw8PD
+      mTUCz/NYXV1FOp0GcOnr53keLpcLzWYTw+GQXM9gMEAQBDSbTSgUCqjVajSbTWi1WuTzeUiS
+      RNyduVwOjUYDPp+PbL4dHh5Cr9eTHOP9/X3iibqP12tvb48K4HNEqVTC7/eTMuEXFxfk6fyh
+      2N7exsnJydzyJ16vF6IoIpfLAQAx0Ksx/YFAgPjnX7x4gVKphFKpBK/Xi8lkQmr6p1IpDIdD
+      skAGQOL/5fl/rVaD3+8n9Yuuj17Xp3SLKlH7fD4qgM8ZueFbKBSCSqUio8L7Fquah8fjwWg0
+      mjvtkOv4vHr1CoIgIBKJ4M2bN5hMJmBZFuFwmIQsu91unJ6eotPpgGVZ/N7v/R6GwyHp2SWv
+      AdRqNdbX1zEYDFAul9FqtRCJRBCLxdDv9xGJRKBUKvG73/1u6l6uT+muNuCQRy6FQgGPxwOd
+      TkfXAJ8zoiiSNEO5Xeg333yDdruNdDqNUqn0YHsD8nRkngDkcicejwdms5kktnMch42NDbI7
+      azQaEY1GIYoi7HY7fD4fAODVq1czU5gXL16g0+lAkiQ0Gg1sbW3h9PSU7CLX63Wsr6+Tp76M
+      /MSXkRfCWq0Wer0earUaLMvCYrHQlMinRKvVQjQahSAIcLlcWF1dxfr6OvL5PLLZ7L02ia7S
+      6XSIF2WexyeXy+GXv/wlkskkWq0WcXPKAXXZbBalUokUqGo2m8jn81NhFjI+nw/j8RgajQb7
+      +/vY3t5GIpGYimWq1+vgOG6qgZ7sCtXpdOTFcRwGgwFarRZKpRImkwnsdju5JzoFeqLITz65
+      mzrLsqjVashms6jX6/eKD1pdXSXRlNdxOBzw+Xyo1WrodDqkQbXcmkg2ulwuh3q9jvF4jN3d
+      XRwdHU2tK+SEFuCyfera2hqZMl393VQqFb799ltSAQK4DNvo9/vodDoYjUYktZPneTidTpJt
+      plKp0Gg0LpvmUQE8fViWhc1mg9/vh8FgQK/XQy6XQ6FQWJgLMA+LxQKtVks2r2RUKhU2NjYQ
+      jUbx7bffYjKZYDQakc0vt9uNarWKfD5Ppiccx2Frawtv3rwh1+F5Hnt7e2BZFkdHRwiHw4jH
+      4xgMBjNP9X6/D6PRCFEU8erVq7lTPZVKBbfbDb1ej1KphEKhAFEU8cUXX5CAOzoFegaIoohi
+      sYhisUgqJQQCAQSDQVSrVeRyOdRqtVtdic1mE16vd0oADMNgbW0N5+fnWFlZgVqtxnA4xPn5
+      OdxuNzqdDg4PD2cM1GQyzQSuvXjxAiqVCqVSCZFIBAzDYGVlBaPRCJ1OB61WC9lsloR/OJ1O
+      rK+vz1zbYDDA7XaD53lks1kkEgky4qlUKrIZCNCd4GdHu93G4eEhWSu43W7s7OyQCs1Xk1Cu
+      Mx6PiTdFNqBAIIBGo4FgMAir1YpCoQCn0wm73Y7j42MMBoO517JarSiVSjAajTAYDLBYLKSk
+      otfrxfn5OQqFAokfmodcREupVGI4HMJqtcLpdGI0Gi30htlstqmIVCqAZ8pwOMTFxQXS6TTM
+      ZjN8Ph/cbjecTifa7TYKhQKq1erM3kKtViO+eNlw5aZ0rVYLoiji6OiIVHeTUSgUJA9Xp9PB
+      6/WC53l0u10MBgOYTCbkcjl0u13ypL8NORH+xYsX4DgOzWZz4V6FjMlkQiwWI3+nAnjmiKKI
+      SqWCSqUCrVYLj8cDk8mEQCAAn89HvDXy07Rer8Nms6HVamFrawtarRYcx6FcLiMej6NWq4Hn
+      ebx8+RLD4RBqtRoqlQqiKBLj7vf7mEwmJGF9e3sbk8kEvV4Pg8FgKeOX5/c8z0MQhLmu1Oso
+      FAoSNyVDF8GUGQRBgMPhgN1uJ9OPyWSCUqmErXIZ/14QcMLz+C+/+hXK3S6SyST6/T50Oh0p
+      jivHEB0eHk7V+QRA3KC1Wg0Oh4Mk1/T7/blVHK4id4mX5/darRZerxc//PDDrb+X2+0meycy
+      dASgzDAcDpFOp5HNZmE2m4kb1Ww2408aDQR6PUQAXMRi+JO37UnH4zFSqdSUse/t7c1thyqH
+      Nsi7xt1uF+PxmJRDmYe8sJVDq+URaTgcYmNjY+H+xFWuh2cAVACUG5CnR71eD36/H8FgEI1S
+      CXibqxsfDpEsl9FsNucaXzqdht/vn4r0FASB+OgjkQh4nke1Wp2qDSrDMAysVitcLtfChW23
+      24UkSWQNsgiFQjG35CIVAGUGuYaO2WyGXq+HJEnQarXI5XL4Z243/u5ohIrdjj9XKuEzGMh0
+      5HrVuGq1Cp/PN7UgtlgsqFarcLvdpPLc4eHh1Cghb1xZrVa0Wq2ZJJmryKESRqPxRgHIWWnX
+      oWsACoB3KZdmsxkqlQqdTocsjG02Gwl3ll2dciyN3IdX7tRSLpeRz+fJQtNisZG5EUIAAAvy
+      SURBVMBisZDpzdbWFjKZDL755ht0Oh389re/JU/lqxtX5XIZhUJhqQjXUCgEvV4/tal2ne3t
+      bZyens64ZekI8IxRqVSwWCwwm80ALsMW0uk0er0e9Ho9QqEQ6vU6qQu0u7uL/f194nmpVquo
+      VqvQaDRwuVwwmUxkD6DRaJCG2/IoMBqNSIzQaDTCTz/9hNFoROb3CoViZuNqGeTvWIScozBv
+      T4IK4BnBMAx5ouv1eoxGI9Tr9SnfuVwMSw5HkI1mdXWV7MLKSeoy3W4X5+fn4HkeDocDNpuN
+      vOr1OoRiEX+sUkE9HuO81cJfhMP4q++/h06nw4sXL27cuFoGOfhOoVDMLRJgNpsXNvamAnji
+      yAVl5fKAnU4H1Wp1qsEEcDnv93g8sFqtSCaTpM4+cJnbq1QqyWJWFEXMmzaPx2Nks1lks1mY
+      TCZ4PB44TSb850wGwbeZa9L5Of5Nq4VcKIRWq4WTk5OFu8XLIkkSWq0W9Hr93Hm+zWabKsF+
+      FSqAJ4ggCO8aQPA8Go0G8vn8wvKAFosFPp8P5XJ5puShHI9z3X0oN7RetPlUr9dRr9fxS4UC
+      AXnjiWHAAPgb9Tr+bbV6r5Iui6jVarDZbDMCYFkWgiAsDPqjAngiaDQaMp+XJAnVahXn5+c3
+      Rnuq1WrS7T0Wi831tPh8PlQqlZnrDIdDKBSKhU9vhmGg0+kuWxHJO7typWadDl+/rTydy+Ue
+      JJWzUqlgdXV15n2z2TzTb+wqVACfKdddlcPhkLgUb8sC4zgOgUAAOp0OiURioftQrrp8tTiu
+      TL/fh1qtnhIAy7LQ6XSw2WzQ6XTodrv4Ta2G/2k04m++zd1tSxL+Va+HRqOBcDiMlZUV5HI5
+      sol2XxqNBun7dRW73T63QYYMFcBnxDxXZblcXrpvl1xkyuv1IpPJ3OptWV1dRTwen3tMv98n
+      ZQ6NRiPsdjvUajXa7TZKpRLi8TgYhkEkEsE/LpfxhSBg3WrFf8vlcN7tAgcHEAQBHo8HHo8H
+      Pp+P1DW9T/aaHEt0tZUqwzBQq9U3Vs6g+wCPnKuuSoZh0Gw2US6X71wORafTIRQKodPp3Nqz
+      FwCpuz9v8ciyLHw+HzweD3q9Hkk3vLrGYFkWkUiE+PN1Oh2cTufUrvDV61mtVgQCARiNRlQq
+      FdJJ8i7u0M3NTZKBBlyubYxGI+kdNg86AjxC5GnEIlflXVAoFAgGg1AoFDg7O1sY63/9HJfL
+      NbWxpFAoYDKZYLFYSJPpVqs11YVF5rrxA5jKIbiOnFRfKpWg0+ng8/nwxRdfkNLnpVJpqRFO
+      bqUqC8Bms5FSLYugAngELOuqvAsMw8DtdsNmsyGTySz0g88jHA7j4uICHMfBbrfDarWC53nU
+      ajVcXFyg1+uBZVns7OzMNf7Nzc0p4wcup2/LVKhot9uIxWI4Pz+H0+nE6uoqNjc3kUgkkMlk
+      brxGrVZDJBIhv79Go7l1OkUF8ImQXZVWqxWCIKBer9/oqrwLRqMRoVAIlUqFlCFZFqvVCrPZ
+      TEonNhoNxOPxmZFDFMWZGqWy8ReLxZk+AMsKQEauFZROp8n0aHV1FclkEolEYu6DYTQaQZIk
+      cBwHrVaLZrN56/dQAXxEZFelyWQCcDlkx+PxOyWm34RSqcTKygpEUUQsFlvaq6JSqWC1WmGz
+      2WAymXBycoJyuXzrlEveEJP/XGT8AOZGYi6D3P+gXC5Dq9ViZWUFv/rVr5DL5ZBIJGZ+x3q9
+      DpPJBJPJtFQHGyqAD8g8V2WlUkEsFnvQZhZyGUGz2YxEIrHUk0/uqmixWDCZTFCpVDAcDnFw
+      cHBr0VmZ0WhEwg9uMn7gcg3xvnVMO50OotEolEolAoEAfvGLX6BWq039zuVyGRaLBRqNZu6C
+      +zpUAA+M7Kq0WCykn+1dXJV3xWq1Ehfimzdvbpw+abVaMgLJYpQ7y+j1elgslqWNH7h0hWq1
+      WrhcrhuNH7h5EXxXBoMBTk5OcHZ2BqfTiZ2dHYxGIyQSCdRqNWxsbJDo1dugAngA5rkq5f66
+      D9FVfR4ajQahUAiDwQAHBwcLpxc6nY40zhsMBiiVSshms1PGuCjc4TYGgwE2NzdxdHR06yL7
+      rmuAZZAL8sod5EOhEHQ6HcIMg9/dIMap+3rQO3pG6HQ6WK1WGI1GjEYj1Gq1e7sq74LcLE6t
+      ViOZTM60PpVDEOQ+W/1+H5VK5Ubf/6Jwh5tgWRZut5sk1C9z3x+yenWj0cCrV68uk290uqlg
+      vpugAliSRa7KdDr9Qf9jZRiGgcPhgNvtRiaTwfn5OflM3o21Wq3k3srlMhKJxK3TrpvCHRYh
+      +/mLxSI0Gs1S53yIEWAeg8EA/+8OIRVUADfwIV2Vd0FOTmm1WlNlx6+GIMjNsOUu6MtyU7jD
+      PGTjz+fzqNVq2N7eXuq8ZZLWPwVUANf40K7KuyAIAoLBIHiex8nJCUajEYxGI2w2G+mCnsvl
+      7i1IuQjWsh3keZ4nKY3ytGfZMBoqgEfKx3JV3gWGYeDxeGCxWFAsFiFJElZWVqBQKFCv1x+k
+      NZIc7rDs1Gee8QOXfvrHatzL8CwFwPM8iWu5T1Tlh8RsNmNlZQUMw2AwGMDpdBJf9zJxPMsi
+      hzsss35ZZPzA5Y6tIAjvndX1qXg2AlAqlWSbX3ZVZjIZUlfmU2NSKhGKRGA2m1GtVlEsFlGt
+      Vj+IYVksFoiieGOiiMxNxg9c7gWoVKob7/MxjxBPVgByMJTNZvvorsr7sGI0olQu4+Dg4IPe
+      H8dx8Pv9ODg4uPVY2fjT6fTcXFvg0usiN5y46Ts/hqfsPjwpAcxzVdZqtVujCB8DPy8Rt/IQ
+      hEIh5HK5W+NyeJ7H9vY2Li4ubhwper0ejEbjjdfiOO7R/vt/9gIQBIF4RgRBQKPRQC6XIw3W
+      KO+4Xt1hEcsaP3A5AiiVyluvR0eAB+QxuSo/F5YNd7iL8QPLC4COAO+B3GXcYrFAp9NhNBp9
+      clfl58Yy4Q7ynH9Z4wcW1wi6Cl0D3IPH7Kr83Fgm3IHneUQiESSTyRsXtPO4bS+AjgBL8thd
+      lZ8rcrfFmww0Eong4uLizsYPXOYF3LQXQEeAG5BrVcox6o/ZVfk54nK50Ol0FoY7vK/xA7fv
+      BfA8/2jXZx9dABzHQa/Xw263Q6vVot1uo1qtfhauys8NhUIBp9O5sGy4QqHA5ubmexk/8E4A
+      i67x7L1A16Mqqavy4yCHO8xbMwmCgI2NDSSTyaVSKG+i3+/Prcom8yzXANRV+Wm5KdxBNv6b
+      yiLehX6/D5vNtvDzZzECyK5Kq9UKrVaL8XiMcrlMXZWfgJvCHR7a+IHLgDiVSnXj/TxWG3gQ
+      Afi1WlhWV9F+21ZnmUwkyodjUbjDhzB+ACRBZxEcxz1ae3gQAaQ6HaRvqUhA+Tjo9XoIgjBT
+      E0epVGJzcxPxePxBjV/mpr2Ax2wXD1YV9zH/ks8FhmGIz/8qSqUSkUgE8Xj8vRe8i5BrBC26
+      r8dqH7Qs9BNC7vJy1dEgG//5+fkHM37gXb+Azw0qgCeCHO6Qlbux4OMZP/CuX8DnBhXAE+F6
+      dQeVSoXNzc2PYvzAu82w6zzmMAiACuBJ4Ha7p8IdPrbxA4tHgMe8BwBQAXz2CIIAh8OBZDIJ
+      4J3xn52dfRBvzyKGw+FcATzmPQCACuCzZ2VlhYQ7fCrjBy73AjiOm3n/MYdBAFQAnzVWq5WE
+      O3xK45eR9wKuQtcAlA+CHO6QSCSgUqmwvr6Ok5OTT2b8wPy9ADoCUD4IoVAImUwGHMdhfX0d
+      p6en6HQ6n/Se5nmCqAAoD47BYIAgCGi1WsT437dU4kMwTwB0CkR5UFiWRSgUQjabfVTGD9AR
+      gPIR8Pl86HQ6CIVCj8r4gXdV4q7y2PcBPnlOMGV5NBoNnE4nxuMxYrHYgxbLfQgGgwEEQZh6
+      j44AlAeBYRisra2B47hHafzA5V4Az08/U+lGGOVBcLvdMBgMePXq1aM0fpnrDbTpIpjy3igZ
+      Bi/tdvz444+P2vgBYDweL8wLeIzQNcBnwECS8D9ev360SSVXkT1Bcl2nx5wMA9AR4LPhMRvR
+      Va67Qq+HRjw2qAAoD8p1ATx24VIBUB6Uq3kBj7kahMz/BzDKH7RxbXyUAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

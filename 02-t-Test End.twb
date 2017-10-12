@@ -1,0 +1,608 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook locale='en_US' source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Answers' inline='true' name='federated.1cf6u1o1v275vb19a69ro1o5h82c' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='R ... you a Trekkie_ (Antworten)' name='google-sheets.1yaaz5r1vq5ng01ffhd3k0qfltnd'>
+            <connection REDIRECT_URI='urn:ietf:wg:oauth:2.0:oob' SCOPE='email profile https://www.googleapis.com/auth/drive.readonly' class='google-sheets' cleaning='no' compat='no' dataRefreshTime='' filename='R ..' googleSheetId='1qT7iXp016-T-W5zbNx8Ew9Utw8p5dIr_Y5GGa2CpZLQ' interpretationMode='8' mimeType='application/vnd.google-apps.spreadsheet' server='' server-oauth='' username='tc.ryouready@gmail.com' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='google-sheets.1yaaz5r1vq5ng01ffhd3k0qfltnd' name='Formularantworten 2' table='[&apos;Formularantworten 2$&apos;]' type='table'>
+          <columns gridOrigin='A1:D14:no:A1:D14:0' header='yes' outcome='2'>
+            <column datatype='datetime' name='Zeitstempel' ordinal='0' />
+            <column datatype='string' name='Do you like Star Trek or Star Wars more?' ordinal='1' />
+            <column datatype='integer' name='What is your R skill level?' ordinal='2' />
+            <column datatype='integer' name='ID' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Zeitstempel</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Zeitstempel]</local-name>
+            <parent-name>[Formularantworten 2]</parent-name>
+            <remote-alias>Zeitstempel</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Do you like Star Trek or Star Wars more?</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Do you like Star Trek or Star Wars more?]</local-name>
+            <parent-name>[Formularantworten 2]</parent-name>
+            <remote-alias>Do you like Star Trek or Star Wars more?</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>What is your R skill level?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[What is your R skill level?]</local-name>
+            <parent-name>[Formularantworten 2]</parent-name>
+            <remote-alias>What is your R skill level?</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[Formularantworten 2]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Formularantworten 2]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>2</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D14:no:A1:D14:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Index' datatype='integer' name='[Calculation_1064538394974580736]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='p Value' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_1119426015392694272]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SCRIPT_REAL(&#13;&#10;&quot;&#13;&#10;tryCatch({&#13;&#10;    t.test( .arg1 ~ .arg2 )$p.value&#13;&#10;}, error = function(e) {&#13;&#10;    -1&#13;&#10;})&#13;&#10;&quot;,&#13;&#10;AVG([What is your R skill level?]), &#13;&#10;ATTR([Do you like Star Trek or Star Wars more?]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Message' datatype='string' name='[Calculation_1198520483963371520]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF  [Calculation_1119426015392694272] = -1 THEN&#13;&#10;&quot;You should not care about Mythbusters!&quot;&#13;&#10;ELSEIF [Calculation_1119426015392694272] &gt;= .05 THEN&#13;&#10;&quot;Trekkies and Star Wars fans do not have a significantly different skill level on average.&quot;&#13;&#10;ELSE&#13;&#10;&quot;Trekkies and Star Wars fans do have a significantly different skill level with a p-value of &quot;&#13;&#10;+ STR([Calculation_1119426015392694272])&#13;&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='string' name='[Do you like Star Trek or Star Wars more?]' role='dimension' type='nominal' />
+      <column aggregation='Sum' datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[What is your R skill level?]' role='measure' type='quantitative' />
+      <column-instance column='[What is your R skill level?]' derivation='None' name='[none:What is your R skill level?:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Do you like Star Trek or Star Wars more?,ID,What is your R skill level?)' hidden='true' name='[Action (Do you like Star Trek or Star Wars more?,ID,What is your R skill level?)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Do you like Star Trek or Star Wars more?]' />
+          <groupfilter function='level-members' level='[ID]' />
+          <groupfilter function='level-members' level='[none:What is your R skill level?:ok]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.477848' measure-ordering='alphabetic' measure-percentage='0.522152' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1cf6u1o1v275vb19a69ro1o5h82c'>
+      <datasources>
+        <datasource caption='Answers' name='federated.1cf6u1o1v275vb19a69ro1o5h82c' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1cf6u1o1v275vb19a69ro1o5h82c'>
+        <column datatype='string' name='[Do you like Star Trek or Star Wars more?]' role='dimension' type='nominal' />
+        <column-instance column='[Do you like Star Trek or Star Wars more?]' derivation='None' name='[none:Do you like Star Trek or Star Wars more?:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]'>
+        <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='member' level='[none:Do you like Star Trek or Star Wars more?:nk]' member='&quot;Star Trek&quot;' />
+          <groupfilter function='member' level='[none:Do you like Star Trek or Star Wars more?:nk]' member='&quot;Star Wars&quot;' />
+        </groupfilter>
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='R skill level by Star *'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Answers' name='federated.1cf6u1o1v275vb19a69ro1o5h82c' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cf6u1o1v275vb19a69ro1o5h82c'>
+            <column datatype='string' name='[Do you like Star Trek or Star Wars more?]' role='dimension' type='nominal' />
+            <column aggregation='Sum' datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[What is your R skill level?]' role='measure' type='quantitative' />
+            <column-instance column='[Do you like Star Trek or Star Wars more?]' derivation='None' name='[none:Do you like Star Trek or Star Wars more?:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ID]' derivation='None' name='[none:ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[What is your R skill level?]' derivation='None' name='[none:What is your R skill level?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What is your R skill level?]' derivation='Sum' name='[sum:What is your R skill level?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:What is your R skill level?:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:What is your R skill level?:qk]' scope='rows' value='false' />
+            <format attr='subtitle' class='0' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]' scope='rows' value='true' />
+            <format attr='display' class='0' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <reference-line axis-column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='none' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.33983424305915833' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:ID:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.33983424305915833' />
+                <format attr='mark-transparency' value='0' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:What is your R skill level?:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:Number of Records:qk]' />
+              <size column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:What is your R skill level?:qk] + [federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:What is your R skill level?:qk])</rows>
+        <cols>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='t-Test Start'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1'>Star Trek or Star Wars: Who is moRe skilled?</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Answers' name='federated.1cf6u1o1v275vb19a69ro1o5h82c' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1cf6u1o1v275vb19a69ro1o5h82c'>
+            <column caption='Index' datatype='integer' name='[Calculation_1064538394974580736]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='p Value' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_1119426015392694272]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SCRIPT_REAL(&#13;&#10;&quot;&#13;&#10;tryCatch({&#13;&#10;    t.test( .arg1 ~ .arg2 )$p.value&#13;&#10;}, error = function(e) {&#13;&#10;    -1&#13;&#10;})&#13;&#10;&quot;,&#13;&#10;AVG([What is your R skill level?]), &#13;&#10;ATTR([Do you like Star Trek or Star Wars more?]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Message' datatype='string' name='[Calculation_1198520483963371520]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF  [Calculation_1119426015392694272] = -1 THEN&#13;&#10;&quot;You should not care about Mythbusters!&quot;&#13;&#10;ELSEIF [Calculation_1119426015392694272] &gt;= .05 THEN&#13;&#10;&quot;Trekkies and Star Wars fans do not have a significantly different skill level on average.&quot;&#13;&#10;ELSE&#13;&#10;&quot;Trekkies and Star Wars fans do have a significantly different skill level with a p-value of &quot;&#13;&#10;+ STR([Calculation_1119426015392694272])&#13;&#10;END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='string' name='[Do you like Star Trek or Star Wars more?]' role='dimension' type='nominal' />
+            <column aggregation='Sum' datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[What is your R skill level?]' role='measure' type='quantitative' />
+            <column-instance column='[Do you like Star Trek or Star Wars more?]' derivation='None' name='[none:Do you like Star Trek or Star Wars more?:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ID]' derivation='None' name='[none:ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_1064538394974580736]' derivation='User' name='[usr:Calculation_1064538394974580736:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[Calculation_1198520483963371520]' derivation='User' name='[usr:Calculation_1198520483963371520:nk:1]' pivot='key' type='nominal'>
+              <table-calc ordering-type='Columns' />
+              <table-calc field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[Calculation_1119426015392694272]' ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[usr:Calculation_1064538394974580736:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>1</max>
+          </filter>
+          <slices>
+            <column>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]</column>
+            <column>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[usr:Calculation_1064538394974580736:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]' value='false' />
+            <format attr='display' field='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:ID:ok]' value='false' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[usr:Calculation_1198520483963371520:nk:1]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='12'>&lt;</run>
+                <run bold='true' fontsize='12'>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[usr:Calculation_1198520483963371520:nk:1]</run>
+                <run bold='true' fontsize='12'>&gt;</run>
+                <run bold='true' fontsize='12'>Æ&#10;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:ID:ok] / [federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk])</rows>
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='t-Test Dashboard'>
+      <style />
+      <size maxheight='800' maxwidth='700' minheight='800' minwidth='700' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='Answers' name='federated.1cf6u1o1v275vb19a69ro1o5h82c' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1cf6u1o1v275vb19a69ro1o5h82c'>
+        <column datatype='string' name='[Do you like Star Trek or Star Wars more?]' role='dimension' type='nominal' />
+        <column-instance column='[Do you like Star Trek or Star Wars more?]' derivation='None' name='[none:Do you like Star Trek or Star Wars more?:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='100000' id='14' param='horz' type='layout-flow' w='100000' x='0' y='0'>
+            <zone h='100000' id='12' param='horz' type='layout-flow' w='77143' x='0' y='0'>
+              <zone h='100000' id='10' param='horz' type='layout-flow' w='77143' x='0' y='0'>
+                <zone h='100000' id='8' param='horz' type='layout-flow' w='77143' x='0' y='0'>
+                  <zone h='100000' id='6' param='horz' type='layout-flow' w='77143' x='0' y='0'>
+                    <zone h='100000' id='4' type='layout-basic' w='77143' x='0' y='0'>
+                      <zone h='79125' id='1' name='R skill level by Star *' show-title='false' w='77143' x='0' y='20875'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                          <format attr='margin-bottom' value='0' />
+                          <format attr='margin-left' value='0' />
+                        </zone-style>
+                      </zone>
+                      <zone h='20875' id='3' name='t-Test Start' w='77143' x='0' y='0'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                          <format attr='margin-top' value='0' />
+                          <format attr='margin-left' value='0' />
+                        </zone-style>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='100000' id='13' is-fixed='true' param='vert' type='layout-flow' w='22857' x='77143' y='0'>
+              <zone h='10750' id='15' name='t-Test Start' param='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]' type='filter' w='22857' x='77143' y='0'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='margin-top' value='0' />
+                  <format attr='margin-right' value='0' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+            <format attr='margin-top' value='8' />
+            <format attr='margin-right' value='8' />
+            <format attr='margin-bottom' value='8' />
+            <format attr='margin-left' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='R skill level by Star *'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:Number of Records:qk]' type='size' />
+            <card pane-specification-id='2' param='[federated.1cf6u1o1v275vb19a69ro1o5h82c].[sum:Number of Records:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]</field>
+            <field>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:ID:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='t-Test Start' tab-color='#17927d'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:Do you like Star Trek or Star Wars more?:nk]</field>
+            <field>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[none:ID:ok]</field>
+            <field>[federated.1cf6u1o1v275vb19a69ro1o5h82c].[usr:Calculation_1198520483963371520:nk:1]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='dashboard' name='t-Test Dashboard' tab-color='#17927d'>
+      <viewpoints>
+        <viewpoint name='R skill level by Star *'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='t-Test Start'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='R skill level by Star *' width='176'>
+      iVBORw0KGgoAAAANSUhEUgAAALAAAADACAYAAACklemfAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAANOklEQVR4nO3be3hU9Z3H8XdOJpMLl3BTybKrgtIH0+Iq0xTMWiRmMcuqqxBxgWdLWGyX
+      4qWsWC627LqrZWVpd6kipXgNeKOI0ZbyuDRGwXVJlUZRJFDlYlMgGJIAYUgyk8k5+8dECUnA
+      5p4vfF7Pk+dhzsw555fJm9/85kwS43meh4hRTncPQKQ9FLCYpoDFNAUspilgMU0Bi2kKWExT
+      wGKaAhbTFLCYpoDFNAUspilgMe28Drg4N0Ag0PCVkc2cFQWU1HT3qE5XnBtgYUF5C/eUU7Aw
+      QG5x245bU1LAijnZZAQCZGTPYWneDo657RpqC6Jj/OI5bvTV1nE3453Hdj4zylvw+hHP8zyv
+      PlTmvfv4TG/ctGe93bXdPLBGGo/RO/K6t2DUAi9684j3+oJR3jM723DQ2ve9n427y3vx90Gv
+      3vO8uppS74Pnn/LeOtLCOTvKzme8UQte9zr4qN55PQM35vgvIO2OB5nbfxkvbTve3cNp2aBM
+      lhQtIXNQO49TcYiPqr7OlV/phQP4EgZz5bSZfLO9x+0GCrgxZwijb8ngld0luABuGYUr5pCd
+      EV1iLHqh6cusy8ENdxNYUkjw803BQpZkLOe9GoAa9uT9O9MmBAgEJnBnoyVKecHC05YGTW+3
+      qLyAhYFcmr/6upRtfojsf82nNPL5eReRnRHgzhWFlDVdGgy8lLRhq3n8uQ85Em58Z/Ql/1vL
+      IX9+VvTlvuG1PrhjNfOmTYhumzCNH//mIKFG++QW17Anbz4TWhzfGRTnElhYQFlZIY/ckdHw
+      /buUFa7gzgkBAoEMshflsecsyzoF3ITj+GBPGZW47Hv5Xv7bncrj+UUU5T/Gdbu/x6JNpY0f
+      zZCxU5j4UgHbGybt4I4tbMrJ5KpEOF74CN959y/5j/XbKNq2ntm9niYnd3vDD76juJRtXszs
+      N9JZ+W/jSfFFz7syPJ01BUXM7vUYD542ZiA+lelPPMrYQz9n+jWZZC96mrdLaoBBZC4p4tl7
+      YPzSTRQVFVE0IzW6z4DruO/pDRQVFbFt/ffw3b+KwspTh9y99nE2XjiHX26bQWprhl+5hVVP
+      HOCGZfksyRyEu+9l7n9rJA9tKKKoKJ/HrtvOPWd5zhRwE64bgcsvZACl7MzvxfRJYxjoA3wp
+      jJ+SQ+GWYk6bJ5PTmHTPB6zdWgoE2bGliFnXjsAhxN7fvcSk2ydwaS8HnF6MvGkmo5/czt4O
+      HO/yb6UxYdkQHlyUyYUO0HDezT+eyti0ADOW76bws6PN9nP6jWTS/J+xsfAVlmYcZWXOw2w+
+      ywtAbP1eXl7w92QEAqSNvYvnCFPfePL+5lTuuXYI/tYWdfRibp07mSv6+gAo3ZnP9nX3csPo
+      AIHAaG5auJGyP1Rw4gy7+1p5unNcKUW/fJOJU/4F59Si4EvEk5o1ExZvpzS9DwUHZnLH5V03
+      L9zz7Nt8491vs/iFMTw5I5XEhu0TH3mDRdcmf+n+jr8fl2XmMDM/izc++mfGjRvQwqP28ev7
+      fk78D54h/5G++CgmN7DmtEeMGHJh22bDy4aSknj6pmHzfsEvplz+Jx1PM3ADN3yED5/7T5Ye
+      Xci09GQgha+OP8mavN9SEQEipeSvXc0116XS7L1OSjpTBj/NutzNMCWdFADiuezrk8lb9xqf
+      nnTBPcmOXz/NO9++issadtt7uJIILuEjuyjc1tZ5OZHU6Q9xa/4DPL+jJnreqyfyysoX2FYR
+      IVJ7mF17m0ytv/8Vj7y2i8O1EcAlfPB9trwzgquGRuNN6DWMvfsPcdIF13WBOkLl/enfPwmf
+      G+bIrg/Z3cbRfpmUK66HVWvY+OlJXMANH+PAxwfPOJ2c9wF//mYlLeu7rAvfxuonJzPMAXAY
+      lr2Muc6L/NP4AIHxd7NlxKP8KCulhaMkk3bT9by6BsaNPDXrJV8zhye+8QE/uC2NQNptrDw5
+      k9UzriIeGDDybxiVN4vRGZOZt+4QFwy/pO3fhDOM7GXfpWT+wxSUuSSn303ujWUs+4fR3Dxz
+      FYVNX39TvsrXStcxd+JoAoE0bpm3lRGPruDWhiEMy5jHuPcWMDYtwI1r9wLDueGBobzwj6PJ
+      mPwgGyoSuKjtoz37t3L5LfzXoot4/b6bSAsEyJz6AC/sDxFH9I1u4Is3idE3jzGepz+rb78I
+      pfkPMnPPJF6dHQ1UusZ5PwO3W3kBCwOjmZl/FctnKN6uphlYTNMMLKYpYDHtnL4OXF1d3Wxb
+      UlJSN4xEOovWwGKalhBimgIW0wwE7BKu2MPWDbksmZ/HJ03ujQRL+XDz86z44Uq2VrZ4ADmH
+      9fyAK9/lxfV76Z8+jYljmt75Ca89/n+Eh93C5Bs768NN6cl6/lWIAWPImRX9Z9PZF4Zz89zh
+      AFQe6MpBSU/R82dgkbNQwGKaAhbTFLCYpoDFtJ7/UfInecz6yaZmm7O+v4pJA7ey7P7Vzf68
+      ZUTOw9yb3tLfdsm5pucHLHIWWkKIaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPA
+      YpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPA
+      YpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPA
+      YpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLab7uHsC5
+      qN71OBGKUBEMEwzVE464APh9Dr3jYxnY20+feB+xTkw3j9Q+BdyBPOB4TR0llTUcPFZLRTDM
+      iVDktID7xPsY1NvPn/VL4OIBiSQnxqGM2y7G8zyvuwdxLnA9j8+qQuw6HGRf+UmqaiOc6ZmN
+      iYG+CXEMG5TEFYN7c1HfeJwYZdwWCrgDeMDh47W898fj7C+vJtQw436ZeJ/D0EFJjPqLZAYn
+      J2gmbgMtITrA8Zo6dh0OtipegFDEZX95NYlxsST6Y+mXGNeJozw36SpEO9W7HiWVNexrZbyf
+      C0Vc9pVXU1JZQ72rF8PW6uEzsEu4Yh+/2/o2b/1vX7KXTmJ443urPuKV5U/xm5I6klNv5q5Z
+      WVyS0LUjPBGKcOhYLVW1dW0+RlVtHYeO1XLxgETNwq3Us2fgynd5cf1e+qdPY+KYZnfy29Vv
+      0i9nMStX/ZT7MyrIzSsm3MVDrAiGKQ+Gz/iG7U/heVAeDFMR7OrR29ezAx4whpxZWVwx0N98
+      oIff552hf0fGnyfh4KP/lTdzY9V7fNzFDQRD9ZwIRdp9nBOhCMFQfQeM6PzSw5cQZ3HiOBdc
+      mtIo7D5c+jUfu6uAQZ1zyttvv71zDtzgzTNsX7duXaee1zKzAdfV1ZAU7z9tm+OUUnaULwKu
+      rq5utl9SUlKbzzly5Mg27yudw2zAcXGJVIfCwKmIXTeFC/ufekx7Ym3JX6WnN9t2rKaO8mCY
+      SDuvIPicGAb19utNXCv17DXw2fRJ5sinpZy6cHWCTz+K0K9v1w7D58Tgc9r/NPocB59+N6LV
+      7AY8+GpG7/8Vbx6oxiXC0Q83sLHvKL7i//JdO5Lf5xDvc9r1KVoM0U/l/D67P47u0rOXEJ/k
+      Mesnm07d3hT9d9b3VzFp+ADG5GTwyvIfMrukjuTAbcyZnkoX90tcrEOi36G6zqGuvvUfZAD4
+      Go4RF6uAW0u/C9EKbxQUtLg9XO9ytLqOqpoI9a18OmNjYuib6KN/Uhz+MwR8fWZmq8d6vtB/
+      +Q7gj3Xom+CjV3wssa34rbLYmBh6xcfSN8F3xnjl7Hr2EsKQhLhY+idBrBNDMFRPpN7lTHNx
+      DNFlQ++GeBPiYrtyqOcUBdxBYoDEuFhinRjifQ41YZdQxCXiurgNl9ichisW8b7omjfJH6uZ
+      t50UcAfzxzrEJTok+V3CEZeI6+E2vLdznOhlN78v+oZNF83aTwF3ghiiIWt27Xx6hsU0BSym
+      KWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSym
+      KWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSym
+      KWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSym
+      KWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0BSymKWAxTQGLaQpYTFPAYpoCFtMUsJimgMU0X3cP
+      oO1cyt97kSfXFrL/eBwXj53MjOx0hiR097ikK5kN2C3ZxJrdI/nOj6Yy0O8S3PM/rMgr5t5p
+      qfi7e3DSZcwuIY4dOE7gr69koN8BfPS+/G+ZlLCdj8PdPTLpSmYD7t3PZfPbuwhGorcjoSrw
+      VfFZZfeOS7qW2SWEP3USM/74FA/P+ynl1XEkD72awMAy4k4Ag6OPqa6ubrZfUlJS1w5UOpXZ
+      gCGBS7LuYnHWqS37Xl3O4YGnbivWc5/ZJUQz7h8oLh7KkH7dPRDpSv8Pdnt+Wvd/ZaQAAAAA
+      SUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='t-Test Dashboard' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAEQ0lEQVR4nO3YTW9UVQCH8f+5twRaQUtpSlqISkLUSOLGqAuJC78tn8CVC3xJWpXQWIIW
+      eWvptMyUkenLlL7MzHVRA5GQEBMSFs/zW557Ts5Z3Ofe5JSmaZpIQKWUUr3tQ0hvkwEIzQD0
+      Ru10VnP9p/k83d1/7dyj/e202520W2vp9Q+fjzejYZYWf8vqxmb6/b2XVjX5a+lGrv/8a45G
+      L0bXWo9euUfTDHLzl4Wsb/Ze+XzstaeU/ofexr1c/PirzP/4fU5PjGfu0pUMdp8kYydy0O9l
+      b3Qq56feSZLMvHciq3dX8vfOfjLeyoczE3nQ6ubbq1/k/korn01O5tq17/LN15/nYWc3UyeO
+      MnPpSj6YO5dOVbK48EMmzkzm4aP1NHXJVm83H11+PwvzCzk7dS6drf1c/fKT3Ftp58LlT195
+      Xv8AesOa3Fq8kVMnx7O9e5iNdjvnzozl9ztr6Xae5HH7ce7+uZQ791eOZx/tpdc/SHt9Pct/
+      3M6T3k6GqXNxdjq376xmevJ0bt9ayvLy3fT6R7l4/uzznXYORqmedbPWeZqj/WdpbTzOwd52
+      tnYO8+jBck5Pz2WsqTM7eyY3F5fS7W5ms7v9n9MWb4H0JjWjUQbDUcbG6gyHw9R1nc7a/Rye
+      nMqF6XfTNCXJKClVqlLy8us3Go1S18drq6pO0wyTlDRJqlJSVVWapkmTJE2TUkoGw2Hq6vhb
+      Xkr5d22VlJKSZDgYpKrr53tUL+YWAxCW16DCMwChGYDQDEBoBiA0AxCaAQjNAIRmAEIzAKEZ
+      gNAMQGgGIDQDEJoBCM0AhGYAQjMAoRmA0AxAaAYgNAMQmgEIzQCEZgBCMwChGYDQDEBoBiA0
+      AxCaAQjNAIRmAEIzAKEZgNAMQGgGIDQDEJoBCM0AhGYAQjMAoRmA0AxAaAYgNAMQmgEIzQCE
+      ZgBCMwChGYDQDEBoBiA0AxCaAQjNAIRmAEIzAKEZgNAMQGgGIDQDEJoBCM0AhGYAQjMAoRmA
+      0AxAaAYgNAMQmgEIzQCEZgBCMwChGYDQDEBoBiA0AxCaAQjNAIRmAEIzAKEZgNAMQGgGIDQD
+      EJoBCM0AhGYAQjMAoRmA0AxAaAYgNAMQmgEIzQCEZgBCMwChGYDQDEBoBiA0AxCaAQjNAIRm
+      AEIzAKEZgNAMQGgGIDQDEJoBCM0AhGYAQjMAoRmA0AxAaAYgNAMQmgEIzQCEZgBCMwChGYDQ
+      DEBoBiA0AxCaAQjNAIRmAEIzAKEZgNAMQGgGIDQDEJoBCM0AhGYAQjMAoRmA0AxAaAYgNAMQ
+      mgEIzQCEZgBCMwChGYDQDEBoBiA0AxCaAQjNAIRmAEIzAKEZgNAMQGgGIDQDEJoBCM0AhGYA
+      QjMAoRmA0AxAaAYgNAMQmgEIzQCEZgBCMwChGYDQDEBoBiA0AxCaAQjNAIRmAEIzAKEZgNAM
+      QGgGIDQDEJoBCM0AhPYPUcTvV+gtIeMAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='26' name='t-Test Start' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAAAaCAYAAADheVNOAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAAcklEQVR4nO3ZsQ2AMAwAQYLYf7LsZEagI8Xf1S7cvGTJa2bmgqj79AJwkgBIEwBpAiBN
+      AKQJgDQBkPZ8Dey9/9gDjlgeYZQ5gUgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBEDaCyEtCpH+nNG3AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
